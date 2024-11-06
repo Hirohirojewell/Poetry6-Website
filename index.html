@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poetry with Falling Skyflakes</title>
+<style>
+    /* Basic reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    /* Background and general styling */
+    body {
+        font-family: 'Georgia', serif;
+        min-height: 100vh;
+        overflow-x: hidden;
+        background: linear-gradient(to bottom, #0d1b2a, #1b263b);
+        color: #ffffff;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    /* Poetry container */
+    .poetry-container {
+        max-width: 600px;
+        margin: 50px auto;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
+        max-height: 80vh;
+        backdrop-filter: blur(5px);
+    }
+    h1 {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+        text-align: center;
+        color: #d4af37; /* Gold color for a touch of elegance */
+        font-weight: bold;
+    }
+    p {
+        font-size: 1.2em;
+        line-height: 1.8;
+        margin-bottom: 15px;
+        text-align: justify;
+        text-indent: 20px;
+        color: #f0f0f0;
+    }
+    /* Styling for falling skyflakes */
+    .skyflake {
+        position: absolute;
+        top: -10px;
+        font-size: 18px;
+        color: #ffffff;
+        opacity: 0.8;
+        animation: fall linear infinite;
+    }
+    /* Animation keyframes for falling effect */
+    @keyframes fall {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 0.8;
+        }
+        100% {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0.1;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="poetry-container">
+    <h1>Whispers of Winter</h1>
+    <p>
+        Softly, gently, they fall from the sky,<br>
+        Tiny whispers, a silent sigh.<br>
+        Dancing down without a sound,<br>
+        Blanketing softly the world around.<br><br>
+        
+        Each flake unique, a fleeting grace,<br>
+        A frozen wonder in endless space.<br>
+        They twirl and drift in winter's embrace,<br>
+        Skyflakes in a gentle, quiet race.<br><br>
+        
+        Upon the earth, a quilt they lay,<br>
+        Turning night into softer day.<br>
+        A world transformed by icy art,<br>
+        A winter's gift to warm the heart.<br><br>
+        
+        Beneath the stars, in stillness deep,<br>
+        The earth in silent beauty sleeps.<br>
+        The skyflakes fall, a winter song,<br>
+        In nature’s choir, where they belong.<br><br>
+        
+        Embrace the cold, embrace the light,<br>
+        Each flake a spark in velvet night.<br>
+        A gentle hush, a tender glow,<br>
+        As skyflakes dance, so soft, so slow.
+    </p>
+</div>
+
+<!-- Generating skyflakes -->
+<script>
+    function createSkyflake() {
+        const skyflake = document.createElement('div');
+        skyflake.classList.add('skyflake');
+        skyflake.innerHTML = '❄';  // Unicode snowflake character
+        skyflake.style.left = `${Math.random() * 100}vw`;
+        skyflake.style.fontSize = `${Math.random() * 10 + 10}px`; // Size variations
+        skyflake.style.animationDuration = `${Math.random() * 3 + 2}s`; // Speed variations
+        skyflake.style.opacity = Math.random(); // Random opacity
+        document.body.appendChild(skyflake);
+
+        // Remove skyflake after it falls
+        setTimeout(() => {
+            skyflake.remove();
+        }, 5000);
+    }
+
+    // Generate skyflakes continuously
+    setInterval(createSkyflake, 100);
+</script>
+
+</body>
+</html>
